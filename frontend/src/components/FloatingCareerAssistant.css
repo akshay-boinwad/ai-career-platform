@@ -1,0 +1,534 @@
+/* =========================================
+   FLOATING AI ASSISTANT BUTTON
+========================================= */
+
+.floating-career-assistant {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+
+  width: 62px;
+  height: 62px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #6366f1,
+    #8b5cf6
+  );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 25px rgba(99, 102, 241, 0.35);
+
+  z-index: 10001;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.floating-career-assistant:hover {
+  transform: scale(1.08);
+
+  box-shadow:
+    0 12px 35px rgba(99, 102, 241, 0.5);
+}
+
+.floating-career-assistant:active {
+  transform: scale(0.95);
+}
+
+.assistant-icon {
+  font-size: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================================
+   PULSE EFFECT
+========================================= */
+
+.floating-career-assistant::before {
+  content: "";
+
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+
+  border: 2px solid rgba(139, 92, 246, 0.35);
+
+  animation: assistant-pulse 2s infinite;
+
+  pointer-events: none;
+}
+
+@keyframes assistant-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+
+  70% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+
+/* =========================================
+   HOVER LABEL
+========================================= */
+
+.floating-career-assistant::after {
+  content: "AI Career Assistant";
+
+  position: absolute;
+
+  right: 75px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  background: #1f2937;
+  color: #ffffff;
+
+  padding: 8px 14px;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease;
+}
+
+.floating-career-assistant:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Don't show label while chat is open */
+
+.floating-career-assistant.assistant-open::after {
+  display: none;
+}
+
+
+/* =========================================
+   CHAT POPUP
+========================================= */
+
+.career-chat-popup {
+  position: fixed;
+
+  right: 25px;
+  bottom: 100px;
+
+  width: 380px;
+  height: 560px;
+
+  background: #ffffff;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 20px 60px rgba(15, 23, 42, 0.2);
+
+  border: 1px solid #e5e7eb;
+
+  overflow: hidden;
+
+  z-index: 10000;
+
+  display: flex;
+  flex-direction: column;
+
+  animation: career-chat-open 0.25s ease;
+}
+
+@keyframes career-chat-open {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* =========================================
+   CHAT HEADER
+========================================= */
+
+.career-chat-header {
+  min-height: 76px;
+
+  padding: 14px 16px;
+
+  background: linear-gradient(
+    135deg,
+    #6366f1,
+    #8b5cf6
+  );
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: #ffffff;
+}
+
+.career-chat-title {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.career-chat-avatar {
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.18);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 23px;
+}
+
+.career-chat-title h3 {
+  margin: 0;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  color: #ffffff;
+}
+
+.career-chat-title span {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 11px;
+
+  color: #dcfce7;
+}
+
+.career-chat-close {
+  width: 34px;
+  height: 34px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  color: #ffffff;
+
+  font-size: 17px;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.career-chat-close:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+
+/* =========================================
+   MESSAGE AREA
+========================================= */
+
+.career-chat-messages {
+  flex: 1;
+
+  padding: 18px 14px;
+
+  background: #f8fafc;
+
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+
+  scroll-behavior: smooth;
+}
+
+
+/* Scrollbar */
+
+.career-chat-messages::-webkit-scrollbar {
+  width: 5px;
+}
+
+.career-chat-messages::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+
+/* =========================================
+   MESSAGE BUBBLES
+========================================= */
+
+.career-chat-message {
+  max-width: 82%;
+
+  padding: 10px 13px;
+
+  border-radius: 14px;
+
+  font-size: 13px;
+  line-height: 1.55;
+
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+
+/* AI message */
+
+.ai-message {
+  align-self: flex-start;
+
+  background: #ffffff;
+
+  color: #334155;
+
+  border: 1px solid #e2e8f0;
+
+  border-bottom-left-radius: 5px;
+
+  box-shadow:
+    0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+
+/* User message */
+
+.user-message {
+  align-self: flex-end;
+
+  background: linear-gradient(
+    135deg,
+    #6366f1,
+    #8b5cf6
+  );
+
+  color: #ffffff;
+
+  border-bottom-right-radius: 5px;
+}
+
+
+/* =========================================
+   THINKING MESSAGE
+========================================= */
+
+.typing-dots {
+  color: #64748b;
+
+  font-size: 12px;
+  font-style: italic;
+}
+
+
+/* =========================================
+   INPUT AREA
+========================================= */
+
+.career-chat-input-area {
+  padding: 12px;
+
+  background: #ffffff;
+
+  border-top: 1px solid #e5e7eb;
+
+  display: flex;
+  align-items: flex-end;
+
+  gap: 8px;
+}
+
+.career-chat-input-area textarea {
+  flex: 1;
+
+  min-height: 42px;
+  max-height: 100px;
+
+  padding: 11px 12px;
+
+  border: 1px solid #dbe2ea;
+  border-radius: 12px;
+
+  resize: none;
+
+  outline: none;
+
+  font-family: inherit;
+  font-size: 13px;
+
+  color: #1e293b;
+
+  background: #f8fafc;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.career-chat-input-area textarea:focus {
+  border-color: #6366f1;
+
+  box-shadow:
+    0 0 0 3px rgba(99, 102, 241, 0.1);
+
+  background: #ffffff;
+}
+
+.career-chat-input-area textarea::placeholder {
+  color: #94a3b8;
+}
+
+
+/* Send button */
+
+.career-chat-input-area button {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  border: none;
+  border-radius: 11px;
+
+  background: linear-gradient(
+    135deg,
+    #6366f1,
+    #8b5cf6
+  );
+
+  color: #ffffff;
+
+  font-size: 17px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.career-chat-input-area button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.career-chat-input-area button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+
+/* =========================================
+   OPEN FULL ASSISTANT
+========================================= */
+
+.career-chat-full-button {
+  width: 100%;
+
+  padding: 11px;
+
+  border: none;
+  border-top: 1px solid #e5e7eb;
+
+  background: #ffffff;
+
+  color: #6366f1;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.career-chat-full-button:hover {
+  background: #f8fafc;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .floating-career-assistant {
+    width: 55px;
+    height: 55px;
+
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .assistant-icon {
+    font-size: 26px;
+  }
+
+  .floating-career-assistant::after {
+    display: none;
+  }
+
+  .career-chat-popup {
+    right: 12px;
+    left: 12px;
+
+    bottom: 82px;
+
+    width: auto;
+
+    height: min(560px, calc(100vh - 110px));
+
+    border-radius: 16px;
+  }
+}
