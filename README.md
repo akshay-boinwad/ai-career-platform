@@ -55,6 +55,26 @@ CareerAI is an AI-powered career platform that brings essential career tools int
 
 ## 🏗️ Project Structure
 
+
+### 3. Important
+
+When you paste this into GitHub, you should see the Markdown source in the **Edit** tab. That's correct.
+
+Then click **Preview**.
+
+You should see:
+
+- ▶️ How to Run
+- 🔧 Backend
+- 💻 Frontend
+- 🔐 Security
+- 🔄 CareerAI Workflow
+- 🔮 Future Improvements
+- 👨‍💻 Author
+- 📄 License
+
+Then click **Commit changes**.
+
 ```text
 ai-career-platform/
 ├── backend/
@@ -84,31 +104,3 @@ ai-career-platform/
 ├── .gitignore
 └── README.md
 
-## ▶️ How to Run
-
-### 🔧 Backend
-
-```bash
-cd backend
-.\venv\Scripts\activate
-uvicorn main:app --reload
-
-
-###  Important
-
-When you paste this into GitHub, you should see the Markdown source in the **Edit** tab. That's correct.
-
-Then click **Preview**.
-
-You should see:
-
-- ▶️ How to Run
-- 🔧 Backend
-- 💻 Frontend
-- 🔐 Security
-- 🔄 CareerAI Workflow
-- 🔮 Future Improvements
-- 👨‍💻 Author
-- 📄 License
-
-Then click **Commit changes**.
