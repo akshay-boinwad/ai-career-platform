@@ -1,3 +1,5 @@
+import os
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -55,19 +57,26 @@ app = FastAPI(
 
 
 # =========================================================
+# =========================================================
 # CORS CONFIGURATION
 # =========================================================
+
+FRONTEND_URL = os.getenv(
+    "FRONTEND_URL",
+    "http://localhost:5173"
+)
 
 app.add_middleware(
     CORSMiddleware,
 
     allow_origins=[
-        # React / Vite localhost
+        FRONTEND_URL,
+
+        # Local development
         "http://localhost:5173",
         "http://localhost:5174",
         "http://localhost:5175",
 
-        # React / Vite 127.0.0.1
         "http://127.0.0.1:5173",
         "http://127.0.0.1:5174",
         "http://127.0.0.1:5175",
@@ -75,13 +84,9 @@ app.add_middleware(
 
     allow_credentials=True,
 
-    allow_methods=[
-        "*"
-    ],
+    allow_methods=["*"],
 
-    allow_headers=[
-        "*"
-    ],
+    allow_headers=["*"],
 )
 
 
