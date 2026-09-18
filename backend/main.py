@@ -57,20 +57,15 @@ app = FastAPI(
 
 
 # =========================================================
-# =========================================================
 # CORS CONFIGURATION
 # =========================================================
-
-FRONTEND_URL = os.getenv(
-    "FRONTEND_URL",
-    "http://localhost:5173"
-)
 
 app.add_middleware(
     CORSMiddleware,
 
     allow_origins=[
-        FRONTEND_URL,
+        # Production frontend
+        "https://ai-career-platform-mu.vercel.app",
 
         # Local development
         "http://localhost:5173",
@@ -113,6 +108,7 @@ app.include_router(career_assistant_router)
 app.include_router(dashboard_router)
 
 app.include_router(live_jobs_router)
+
 
 # =========================================================
 # ROOT ENDPOINT
