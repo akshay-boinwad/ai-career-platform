@@ -951,3 +951,105 @@
     padding: 16px;
   }
 }
+
+/* =========================================================
+   MOBILE CAREERAI SIDEBAR COMPATIBILITY
+   Keeps desktop design/functionality unchanged
+========================================================= */
+
+@media (max-width: 750px) {
+  .roadmap-page {
+    display: block;
+    width: 100%;
+  }
+
+  /* Main content clears the fixed mobile header */
+  .roadmap-page .roadmap-main {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    margin-left: 0;
+    padding: 84px 18px 40px;
+  }
+
+  /* Strong, visible page heading */
+  .roadmap-header {
+    margin-bottom: 30px;
+  }
+
+  .roadmap-header h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+  }
+
+  .roadmap-header p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .roadmap-hero {
+    padding: 25px;
+  }
+
+  .roadmap-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .target-jobs {
+    grid-template-columns: 1fr;
+  }
+
+  .roadmap-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .timeline-top {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 500px) {
+  .roadmap-page .roadmap-main {
+    padding: 80px 16px 30px;
+  }
+
+  .roadmap-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  .roadmap-header p {
+    font-size: 13px;
+  }
+
+  .roadmap-card {
+    padding: 20px 17px;
+  }
+
+  .roadmap-hero {
+    padding: 22px 20px;
+  }
+
+  .roadmap-hero h2 {
+    font-size: 22px;
+  }
+
+  .roadmap-stats {
+    gap: 12px;
+  }
+
+  .roadmap-stat-card {
+    padding: 16px;
+  }
+
+  .timeline-item {
+    gap: 12px;
+  }
+
+  .timeline-content {
+    padding: 16px;
+  }
+}

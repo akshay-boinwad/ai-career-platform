@@ -1125,3 +1125,46 @@
     font-size: 13px;
   }
 }
+
+/* =========================================================
+   MOBILE HEADER COMPATIBILITY
+   Existing functionality preserved
+========================================================= */
+
+@media (max-width: 750px) {
+
+  .interview-page {
+    display: block;
+    width: 100%;
+  }
+
+  .interview-page .interview-main {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 84px 18px 40px;
+  }
+
+  .interview-page .interview-header {
+    margin-bottom: 30px;
+  }
+
+  .interview-page .interview-header h1 {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .interview-page .interview-main {
+    padding: 80px 16px 30px;
+  }
+
+  .interview-page .interview-header h1 {
+    font-size: 28px;
+  }
+
+}

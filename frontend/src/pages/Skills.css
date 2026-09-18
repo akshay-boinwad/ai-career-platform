@@ -1005,3 +1005,46 @@
   }
 
 }
+
+/* =========================================================
+   MOBILE HEADER COMPATIBILITY
+   Existing functionality preserved
+========================================================= */
+
+@media (max-width: 750px) {
+
+  .skills-page {
+    display: block;
+    width: 100%;
+  }
+
+  .skills-page .skills-main {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 84px 18px 40px;
+  }
+
+  .skills-page .skills-header {
+    margin-bottom: 30px;
+  }
+
+  .skills-page .skills-header h1 {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .skills-page .skills-main {
+    padding: 80px 16px 30px;
+  }
+
+  .skills-page .skills-header h1 {
+    font-size: 28px;
+  }
+
+}
