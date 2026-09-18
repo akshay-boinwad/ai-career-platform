@@ -44,7 +44,7 @@ function Interview() {
       });
 
       const response = await fetch(
-        `http://127.0.0.1:8000/api/interview/start?${params.toString()}`,
+        `${import.meta.env.VITE_API_URL}/api/interview/start?${params.toString()}`,
         {
           method: "POST",
           headers: {
@@ -107,7 +107,7 @@ function Interview() {
       });
 
       const response = await fetch(
-        `http://127.0.0.1:8000/api/interview/${currentInterview.id}/answer?${params.toString()}`,
+        `${import.meta.env.VITE_API_URL}/api/interview/${currentInterview.id}/answer?${params.toString()}`,
         {
           method: "POST",
           headers: {

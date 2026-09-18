@@ -48,7 +48,7 @@ function FloatingCareerAssistant() {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/api/career-assistant/chat?message=${encodeURIComponent(
+        `${import.meta.env.VITE_API_URL}/api/career-assistant/chat?message=${encodeURIComponent(
           trimmedMessage
         )}`,
         {

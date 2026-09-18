@@ -34,7 +34,7 @@ function Dashboard() {
 
       try {
         const response = await fetch(
-          "http://127.0.0.1:8000/api/dashboard/",
+          `${import.meta.env.VITE_API_URL}/api/dashboard/`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

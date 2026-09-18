@@ -24,7 +24,7 @@ function Login() {
       });
 
       const response = await fetch(
-        `http://127.0.0.1:8000/api/auth/login?${params.toString()}`,
+        `${import.meta.env.VITE_API_URL}/api/auth/login?${params.toString()}`,
         {
           method: "POST",
           headers: {

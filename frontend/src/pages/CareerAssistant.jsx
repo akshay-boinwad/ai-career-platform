@@ -39,7 +39,7 @@ function CareerAssistant() {
       });
 
       const response = await fetch(
-        `http://localhost:8000/api/career-assistant/chat?${params.toString()}`,
+        `${import.meta.env.VITE_API_URL}/api/career-assistant/chat?${params.toString()}`,
         {
           method: "POST",
           headers: {
